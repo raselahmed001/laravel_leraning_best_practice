@@ -1,4 +1,4 @@
-<li class="nav-item">
+{{-- <li class="nav-item">
     <a class="nav-link" href="{{ route('client.index') }}">{{ __('Clients') }}</a>
 </li>
 <li class="nav-item">
@@ -43,4 +43,4 @@
             {{ __('Subtopics') }}
         </a>
     </div>
-</li>
+</li> --}}

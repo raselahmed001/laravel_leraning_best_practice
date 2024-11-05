@@ -12,7 +12,7 @@ class ResponseHelper
         //
     }
 
-    public static function success($status = null,$message = null, $data = [], $statusCode = 200)
+    public static function success($status = null, $message = null, $data = [], $statusCode = 200)
     {
         return response()->json([
             'status' => $status ?? 'success',

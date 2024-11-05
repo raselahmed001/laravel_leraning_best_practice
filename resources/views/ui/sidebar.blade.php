@@ -4,13 +4,14 @@
         <!-- Dark Logo-->
 
         <!-- Light Logo-->
-        {{-- <a href="{{ route('admin.dashboard') }}" class="logo logo-light"> --}}
-        <a href="#" class="logo logo-light">
+        <a href="{{ url('dashboard') }}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="{{ asset('logo-new.png') }}" alt="" height="25">
+                <img src="{{ asset('images/logo_2.jpg') }}" alt="" height="25">
             </span>
             <span class="logo-lg">
-                <img src="{{ asset('logo-new.png') }}" alt="" height="45">
+                <img src="{{ asset('images/logo-sm-1.png') }}" alt="Logo" class="logo-img w-100"
+                    style="max-width: 100px;">
+
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -26,17 +27,17 @@
             </div>
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#">
-                        {{-- <a class="nav-link menu-link" href="{{ route('admin.dashboard') }}"> --}}
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">dashboard</span>
-                    </a>
+                    <a class="nav-link menu-link" href="{{ url('dashboard') }}">
+                        <a class="nav-link menu-link" href="{{ route('dashboard') }}">
+                            <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">dashboard</span>
+                        </a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#">
-                        {{-- <a class="nav-link menu-link" href="{{ route('vrm.index') }}"> --}}
-                        <i class="ri-honour-line"></i> <span data-key="t-widgets">{{ trans('sidebar.permits') }}</span>
-                    </a>
+                        <a class="nav-link menu-link" href="{{ route('category.index') }}">
+                            <i class="ri-honour-line"></i> <span data-key="t-widgets">Manage Categories</span>
+                        </a>
                 </li>
 
                 <li class="nav-item">
@@ -109,7 +110,7 @@
         </li>
         <li class="menu-title"><i class="ri-more-fill"></i> <span
                 data-key="t-components">{{ __('sidebar.Website
-                                                                                                                                                                                        Control') }}</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Control') }}</span>
         </li>
 
         <li class="nav-item">

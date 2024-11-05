@@ -1,4 +1,4 @@
-@extends('ui')
+{{-- @extends('ui')
 
 @section('title', 'User Dashboard')
 
@@ -155,4 +155,4 @@
             }
         });
     </script>
-@endpush
+@endpush --}}
