@@ -4,14 +4,23 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Repositories\Category\CategoryInterface;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
+    private $CategoryRepository;
+
+    public function __construct(CategoryInterface $CategoryRepository)
+    {
+        $this->CategoryRepository = $CategoryRepository;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        
         return view('Admin.dashboard.category.index');
     }
 
@@ -26,9 +35,15 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+   public function store(CategoryRequest $request)
     {
-        //
+        
+        $data = $request->all();
+        $category_row_id = null;
+
+        $this->CategoryRepository->store($data, $category_row_id);
+
+        return redirect()->route('category.index')->with('success', 'Category created successfully!');
     }
 
     /**

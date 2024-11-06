@@ -1,5 +1,5 @@
-<form action="#" method="POST" enctype="multipart/form-data">
-    @csrf
+<form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+    {{ csrf_field() }}
     <div class="modal zoomIn" id="modelCreate" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -8,17 +8,17 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="dropdown mb-3">
-                        <button class="btn btn-info dropdown-toggle" type="button"
-                            id="dropdownMenuButton"name="parent_id" data-bs-toggle="dropdown" aria-expanded="false">
-                            Category
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
+
+                    <div class="mb-3">
+                        <label for="parent_id" class="form-label">Parent Category</label>
+                        <select class="form-select" aria-label="Select Parent Category" name="parent_id" id="parent_id">
+                            <option value="" selected disabled>Select a Category</option>
+                            <option value="1">Main category</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="categoryName" class="form-label">Category Name <span
                                 class="required"style="color: red;">*</span></label>
@@ -28,7 +28,7 @@
 
                     <div class="mb-3">
                         <label for="categoryImage" class="form-label">Upload Image</label>
-                        <input type="file" class="form-control" id="categoryImage" name="category_image"
+                        <input type="file" class="form-control" id="category_image" name="category_image"
                             accept="image/*" onchange="previewImage(event)" required>
                         <img id="imagePreview" class="rounded mt-3" style="display: none;" alt="Image Preview"
                             width="200">
@@ -40,17 +40,22 @@
                     <div class="mb-3">
                         <label for="shortDescription" class="form-label">Short Description</label>
                         <textarea class="form-control" id="shortDescription" name="short_desc" rows="3"
-                            placeholder="Enter your short description" name="short_description"></textarea>
+                            placeholder="Enter your short description"></textarea>
                     </div>
 
+                    {{-- <div class="mb-3">
+                        <label for="longDescription" class="form-label">Long Description</label>
+                        <textarea class="form-control" id="longDescription" name="long_desc" rows="3"
+                            placeholder="Enter your long description" name="long_desc"></textarea>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="longDescription" class="form-label">Long Description</label>
                         <textarea class="form-control" id="longDescription" name="long_desc" rows="3"
-                            placeholder="Enter your long description" name="long_description"></textarea>
+                            placeholder="Enter your long description"></textarea>
                     </div>
 
                     <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="formCheck6" name="featured_category">
+                        <input class="form-check-input" type="checkbox" id="formCheck6" name="is_featured">
                         <label class="form-check-label" for="formCheck6">
                             Featured Category
                         </label>
@@ -88,7 +93,7 @@
 
     // Clear image function
     function clearImage() {
-        const fileInput = document.getElementById('categoryImage');
+        const fileInput = document.getElementById('category_image');
         const imagePreview = document.getElementById('imagePreview');
         fileInput.value = ''; // Clear the input
         imagePreview.style.display = 'none'; // Hide the preview

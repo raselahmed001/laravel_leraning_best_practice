@@ -19,6 +19,7 @@ class AuthController extends Controller
     
 
     public function __construct(
+        
         RegisterInterface $registerRepository,
         LoginInterface $loginRepository
     ) {
